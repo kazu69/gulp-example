@@ -21,40 +21,40 @@ server = lr();
 # Styles
 gulp.task 'styles', ->
   gulp.src('src/**/*.scss')
-  .pipe sass({ style: 'expanded' })
-  .pipe autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4')
-  .pipe gulp.dest('dist/assets/css')
-  .pipe rename({suffix: '.min'})
-  .pipe minifycss()
-  .pipe gulp.dest('dist/assets/css')
-  .pipe livereload(server)
-  .pipe notify({ message: 'Styles task complete' })
+  .pipe(sass({ style: 'expanded' }))
+  .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+  .pipe(gulp.dest('dist/assets/css'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(minifycss())
+  .pipe(gulp.dest('dist/assets/css'))
+  .pipe(livereload(server))
+  .pipe(notify({ message: 'Styles task complete' }))
 
 # Scripts
 gulp.task 'scripts', ->
-  gulp.src('src/scripts/**/*.js')
-  .pipe jshint('.jshintrc')
-  .pipe jshint.reporter('default')
-  .pipe concat('main.js')
-  .pipe gulp.dest('dist/assets/js')
-  .pipe rename({suffix: '.min'})
-  .pipe uglify()
-  .pipe gulp.dest('dist/assets/js')
-  .pipe livereload(server)
-  .pipe notify({ message: 'Scripts task complete' })
+  gulp.src('src/scripts/**/*.js'))
+  .pipe(jshint('.jshintrc'))
+  .pipe(jshint.reporter('default'))
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest('dist/assets/js'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/assets/js'))
+  .pipe(livereload(server))
+  .pipe(notify({ message: 'Scripts task complete' }))
 
 # Images
 gulp.task 'images', ->
-  gulp.src('src/images/**/*')
-  .pipe imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })
-  .pipe gulp.dest('dist/assets/img')
-  .pipe livereload(server)
-  .pipe notify({ message: 'Images task complete' })
+  gulp.src('src/images/**/*'))
+  .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+  .pipe(gulp.dest('dist/assets/img'))
+  .pipe(livereload(server))
+  .pipe(notify({ message: 'Images task complete' }))
 
 # Celan
 gulp.task 'clean', ->
   gulp.src(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], { read: false })
-  .pipe clean()
+  .pipe(clean())
 
 # Default task
 gulp.task 'default', ['clean'], ->
