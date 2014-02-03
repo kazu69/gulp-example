@@ -4,7 +4,7 @@
 
 ```shell
 npm install
-gulp --require coffee-script
+gulp --require coffee-script/register
 
 # => gulp run tasks...
 ```
